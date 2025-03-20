@@ -17,9 +17,10 @@
     </script>
     <script type="module">
     import * as THREE from 'three';
+    const gl = document.getElementById('wgl');
     const DEFAULT_ROUGHNESS = 0.1;
     const DEFAULT_METALNESS = 0.3;
-    const renderer = new THREE.WebGLRenderer({ antialias: true, document.getElementById('wgl')});
+    const renderer = new THREE.WebGLRenderer({ antialias: true, gl});
     const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 150);
     renderer.setSize(window.innerWidth, window.innerHeight);
     window.addEventListener("resize", function() {
