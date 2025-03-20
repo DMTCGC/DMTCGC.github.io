@@ -8,16 +8,57 @@
     </style>
   </head>
   <body>
-    <h1>kokot</h1>
+    <h1>Three.js o_0</h1>
+    <canvas id="wgl" width="420" height="240"></canvas>
+    <script type="importmap">
+      {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.130.0/build/three.module.js"
+      }
+    </script>
     <script type="module">
-      import * as THREE from 'three';
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
+    const DEFAULT_ROUGHNESS = 0.1;
+    const DEFAULT_METALNESS = 0.3;
+    const renderer = new THREE.WebGLRenderer({ antialias: true, document.getElementById('wgl')});
+    const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 150);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    window.addEventListener("resize", function() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    const scene = new THREE.Scene();
+    document.body.appendChild(renderer.domElement);
+    scene.background = new THREE.Color(0x000000);
+    function cube(width, height, depth, x, y, z, rotation, color, roughness, metalness) {
+      if(width == undefined || height == undefined || depth == undefined || x == undefined || y == undefined || z == undefined || rotation == undefined || color == undefined || roughness == undefined || metalness == undefined) {
+        return new Error('Include all params or are you too sleepy to do that?');
+    } else {
+       const geometry = new THREE.BoxGeometry(width, height, depth);
+       const material = new THREE.MeshStandardMaterial({
+           color: color,
+           roughness: roughness,
+           metalness: metalness
+       });
+       const obj = new THREE.Mesh(geometry, material);
+       return obj;
+    }
+}
+      const light = new THREE.AmbientLight(0xffffff, 1);
+      const lightDir = new THREE.DirectionalLight(0xffffff, 1);
+      light.position.set(0, 3, 0);
+      lightDir.position.set(0, 10, 0);
+      scene.add(light);
+      scene.add(lightDir);
+      var objects = [
+        new cube(10, 10, 10, 5, 0, 5, 0, 0xff0000, DEFAULT_ROUGHNESS, DEFAULT_METALNESS)
+      ]
+      objects.forEach(obj => {
+        scene.add(obj);
+      })
+      function update() {
+        renderer.render(scene, camera);
+        requestAnimationFrame(update);
+      }
     </script>
   </body>
 </html>
