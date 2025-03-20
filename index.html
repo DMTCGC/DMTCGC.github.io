@@ -47,10 +47,11 @@
       scene.add(light);
       scene.add(lightDir);
       var objects = [
-        new cube(10, 10, 10, 5, 0, 5, 0, 0xff0000, DEFAULT_ROUGHNESS, DEFAULT_METALNESS)
+        new cube(10, 10, 10, 0, 0, -5, 0, 0xff0000, DEFAULT_ROUGHNESS, DEFAULT_METALNESS)
       ]
       objects.forEach(obj => {
         scene.add(obj);
+        console.log(`Added object to scene: ${obj}`)
       })
       function update() {
         renderer.render(scene, camera);
