@@ -22,12 +22,7 @@
     const DEFAULT_METALNESS = 0.3;
     const renderer = new THREE.WebGLRenderer({ antialias: true, gl});
     const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 150);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    window.addEventListener("resize", function() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+    renderer.setSize(420, 240);
     const scene = new THREE.Scene();
     document.body.appendChild(renderer.domElement);
     scene.background = new THREE.Color(0x000000);
