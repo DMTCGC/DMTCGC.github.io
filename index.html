@@ -37,6 +37,8 @@
            metalness: metalness
        });
        const obj = new THREE.Mesh(geometry, material);
+        obj.position.set(x, y, z);
+        obj.rotation.set(rotation, rotation, rotation);
        return obj;
     }
 }
