@@ -58,9 +58,14 @@
         scene.add(obj);
         console.log(obj);
       })
+      function cuberotateXD() {
+        objects[0].rotation.x += 0.01;
+        objects[0].rotation.y += 0.01;
+      }
       function update() {
         renderer.render(scene, camera);
         requestAnimationFrame(update);
+        cuberotateXD();
       }
       update();
     </script>
