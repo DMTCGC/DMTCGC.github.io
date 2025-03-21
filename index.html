@@ -55,6 +55,7 @@
         scene.add(obj);
         console.log(obj);
       })
+      camera.lookAt(objects[0]);
       function update() {
         renderer.render(scene, camera);
         requestAnimationFrame(update);
