@@ -53,6 +53,7 @@
       var objects = [
         cube(1, 1, 1, 0, 0, 0, 0, 0xff0000, DEFAULT_ROUGHNESS, DEFAULT_METALNESS)
       ]
+      camera.lookAt(0, 0, 0);
       objects.forEach(obj => {
         scene.add(obj);
         console.log(obj);
@@ -61,6 +62,7 @@
         renderer.render(scene, camera);
         requestAnimationFrame(update);
       }
+      update();
     </script>
   </body>
 </html>
