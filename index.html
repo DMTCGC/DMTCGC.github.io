@@ -22,7 +22,7 @@
     const DEFAULT_ROUGHNESS = 0.1;
     const DEFAULT_METALNESS = 0.3;
     const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: gl});
-    const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 500);
+    const camera = new THREE.PerspectiveCamera(70, 420 / 240, 0.01, 500);
     camera.position.set(0, 0, 5)
     renderer.setSize(420, 240);
     const scene = new THREE.Scene();
