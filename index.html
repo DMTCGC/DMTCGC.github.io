@@ -21,7 +21,7 @@
     const gl = document.getElementById('wgl');
     const DEFAULT_ROUGHNESS = 0.1;
     const DEFAULT_METALNESS = 0.3;
-    const renderer = new THREE.WebGLRenderer({ antialias: true, gl});
+    const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: gl});
     const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 150);
     renderer.setSize(420, 240);
     const scene = new THREE.Scene();
@@ -56,7 +56,7 @@
         scene.add(obj);
         console.log(obj);
       })
-      camera.lookAt(objects[0]);
+      camera.lookAt(objects[0].position);
       function update() {
         renderer.render(scene, camera);
         requestAnimationFrame(update);
