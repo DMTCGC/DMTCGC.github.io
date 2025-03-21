@@ -21,10 +21,10 @@
     <script type="module">
     // Swepet: hi i added comments to the code to make others from GC understand wut the code does
     import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.130.0/build/three.module.js';
-    const gl = document.getElementById('wgl');
-    const DEFAULT_ROUGHNESS = 0.1;
-    const DEFAULT_METALNESS = 0.3;
-    const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: gl});
+    const gl = document.getElementById('wgl'); // gets the canvas elements
+    const DEFAULT_ROUGHNESS = 0.1; // go scroll down to see what it odes
+    const DEFAULT_METALNESS = 0.3; // same here
+    const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: gl}); // antialias is what minecraft uses, like uh basically the edges get pixelated from afar
     const camera = new THREE.PerspectiveCamera(70, // FOV
                                                800 / 600, // aspect ratio (make it width divided by height)
                                                0.01, // "near" value, meaning if you are for example 0.01 from an object it will not show anymore
@@ -33,7 +33,7 @@
     camera.position.set(0, 0, 5) // xyz
     renderer.setSize(800, 600);
     const scene = new THREE.Scene();
-    document.body.appendChild(renderer.domElement);
+    document.body.appendChild(renderer.domElement); // no idea what this does this was in the tutorial
     scene.background = new THREE.Color(0x000000);
     function cube(width, height, depth, x, y, z, rotation, color, roughness, metalness) {
       if(width == undefined || height == undefined || depth == undefined || x == undefined || y == undefined || z == undefined || rotation == undefined || color == undefined || roughness == undefined || metalness == undefined) {
@@ -66,7 +66,7 @@
         Depth: Z Scale
         XYZ: Position obviously what else lol
         Rotation: Use degrees 0-360°
-        Color: Wow i wonder what this does lol HMMM
+        Color: For colors it's hex code ofc but instead of typing a string like '#FF0000', type 0xFF0000
         Roughness: Idk how this works (use DEFAULT_ROUGHNESS if you have no idea what to set)
         Metalness: How reflective the object is (use DEFAULT_METALNESS if you have no idea what to set)
         */
@@ -83,8 +83,8 @@
       }
       function update() {
         renderer.render(scene, camera);
-        requestAnimationFrame(update);
-        cuberotateXD();
+        requestAnimationFrame(update); // this code makes it so this loops
+        cuberotateXD(); 
       }
       update();
     </script>
