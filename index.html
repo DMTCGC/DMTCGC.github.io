@@ -19,13 +19,18 @@
       }
     </script>
     <script type="module">
+    // Swepet: hi i added comments to the code to make others from GC understand wut the code does
     import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.130.0/build/three.module.js';
     const gl = document.getElementById('wgl');
     const DEFAULT_ROUGHNESS = 0.1;
     const DEFAULT_METALNESS = 0.3;
     const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: gl});
-    const camera = new THREE.PerspectiveCamera(70, 800 / 600, 0.01, 500);
-    camera.position.set(0, 0, 5)
+    const camera = new THREE.PerspectiveCamera(70, // FOV
+                                               800 / 600, // aspect ratio (make it width divided by height)
+                                               0.01, // "near" value, meaning if you are for example 0.01 from an object it will not show anymore
+                                               500 // "far" value, the opposite, this is kinda like render distance in mc but in world units (let's call them meters ig)
+                                              );
+    camera.position.set(0, 0, 5) // xyz
     renderer.setSize(800, 600);
     const scene = new THREE.Scene();
     document.body.appendChild(renderer.domElement);
@@ -35,32 +40,44 @@
         return new Error('Include all params or are you too sleepy to do that?');
     } else {
        const geometry = new THREE.BoxGeometry(width, height, depth);
-       const material = new THREE.MeshStandardMaterial({
+       const material = new THREE.MeshStandardMaterial({ // "standard" material is material that can reflect light
            color: color,
-           roughness: roughness,
-           metalness: metalness
+           roughness: roughness, // light reflection param, idk how it works
+           metalness: metalness // light reflection param that makes it reflect STRONGER if set to a higher value
        });
-       const obj = new THREE.Mesh(geometry, material);
+       const obj = new THREE.Mesh(geometry, material); 
         obj.position.set(x, y, z);
-        obj.rotation.set(rotation, rotation, rotation);
-       return obj;
+        obj.rotation.set(rotation, rotation, rotation); // rotation is set the same to all 3 axes
+       return obj; // don't mind, this makes it so the function returns the object in like a class or whatever so i can add it to an array
     }
 }
-      const light = new THREE.AmbientLight(0xffffff, 1);
-      const lightDir = new THREE.DirectionalLight(0xffffff, 1);
+      const light = new THREE.AmbientLight(0xffffff, 1); // ambient light, light that appears everywhere and is very weak
+      const lightDir = new THREE.DirectionalLight(0xffffff, 1); // directional light, light that points to a direction in a "cone", very strong
       light.position.set(0, 3, 0);
       lightDir.position.set(0, 10, 0);
       scene.add(light);
       //scene.add(lightDir);
-      var objects = [
+      var objects = [ 
+        /*
+        Object Tutorial: Add a new cube(...) function into the array, params:
+        cube(width, height, depth, x, y, z, rotation, color, roughness, metalness)
+        Width: X Scale
+        Height: Y Scale
+        Depth: Z Scale
+        XYZ: Position obviously what else lol
+        Rotation: Use degrees 0-360°
+        Color: Wow i wonder what this does lol HMMM
+        Roughness: Idk how this works (use DEFAULT_ROUGHNESS if you have no idea what to set)
+        Metalness: How reflective the object is (use DEFAULT_METALNESS if you have no idea what to set)
+        */
         cube(3, 3, 3, 0, 0, 0, 0, 0xff0000, DEFAULT_ROUGHNESS, DEFAULT_METALNESS)
       ]
       camera.lookAt(0, 0, 0);
-      objects.forEach(obj => {
+      objects.forEach(obj => { // adds all objs
         scene.add(obj);
         console.log(obj);
       })
-      function cuberotateXD() {
+      function cuberotateXD() { // rotating
         objects[0].rotation.x += 0.01;
         objects[0].rotation.y += 0.01;
       }
