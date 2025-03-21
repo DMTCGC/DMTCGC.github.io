@@ -12,7 +12,7 @@
   <body>
     <h1>Three.js o_0</h1>
     <h1>DMTC</h1>
-    <canvas id="wgl" width="420" height="240"></canvas>
+    <canvas id="wgl" width="800" height="600"></canvas>
     <script type="importmap">
       {
         "three": "https://cdn.jsdelivr.net/npm/three@0.130.0/build/three.module.js"
@@ -24,9 +24,9 @@
     const DEFAULT_ROUGHNESS = 0.1;
     const DEFAULT_METALNESS = 0.3;
     const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: gl});
-    const camera = new THREE.PerspectiveCamera(70, 420 / 240, 0.01, 500);
+    const camera = new THREE.PerspectiveCamera(70, 800 / 600, 0.01, 500);
     camera.position.set(0, 0, 5)
-    renderer.setSize(420, 240);
+    renderer.setSize(800, 600);
     const scene = new THREE.Scene();
     document.body.appendChild(renderer.domElement);
     scene.background = new THREE.Color(0x000000);
@@ -71,5 +71,6 @@
       }
       update();
     </script>
+    <h3>yaay 800x600 cube</h3>
   </body>
 </html>
