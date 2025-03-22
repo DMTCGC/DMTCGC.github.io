@@ -13,6 +13,8 @@
       <h1>WIP</h1>
       <canvas id="RADAR" width="256" height="256"></canvas>
          <script>
+            var x = 128;
+            var y = 0;
    const RDR = document.getElementById("RADAR");
    const ctx = RDR.getContext("2d");
 
@@ -24,13 +26,12 @@
 
             ctx.beginPath(); //line
             ctx.moveTo(128, 128);
-            ctx.lineTo(128, 0);
+            ctx.lineTo(x, y);
             ctx.strokeStyle = "green"
             ctx.stroke();
 
-
             
       </script>
-      
+      <button onclick="x = x--">rdr</button>
    </body>
 </html>
