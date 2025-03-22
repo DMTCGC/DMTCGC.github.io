@@ -10,7 +10,7 @@
   <body>
     <h1>Discord Multi Topic Chat</h1>
     <h1>Three.js o_0</h1>
-    <canvas id="wgl" width="800" height="600"></canvas>
+    <canvas id="wgl" width="400" height="300"></canvas>
     <script type="importmap">
       {
         "three": "https://cdn.jsdelivr.net/npm/three@0.130.0/build/three.module.js"
@@ -24,12 +24,12 @@
     const DEFAULT_METALNESS = 0.3; // same here
     const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: gl}); // antialias is what minecraft uses, like uh basically the edges get pixelated from afar
     const camera = new THREE.PerspectiveCamera(70, // FOV
-                                               800 / 600, // aspect ratio (make it width divided by height)
+                                               400 / 300, // aspect ratio (make it width divided by height)
                                                0.01, // "near" value, meaning if you are for example 0.01 from an object it will not show anymore
                                                500 // "far" value, the opposite, this is kinda like render distance in mc but in world units (let's call them meters ig)
                                               );
     camera.position.set(0, 0, 5) // xyz
-    renderer.setSize(800, 600);
+    renderer.setSize(400, 300);
     const scene = new THREE.Scene();
     document.body.appendChild(renderer.domElement); // no idea what this does this was in the tutorial
     scene.background = new THREE.Color(0x000000);
