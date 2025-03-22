@@ -13,16 +13,23 @@
       <h1>WIP</h1>
       <canvas id="RADAR" width="256" height="256"></canvas>
          <script>
-const RDR = document.getElementById("RADAR");
-const ctx = RDR.getContext("2d");
+   const RDR = document.getElementById("RADAR");
+   const ctx = RDR.getContext("2d");
 
-ctx.beginPath();
-ctx.arc(128, 128, 128, 0, 2 * Math.PI);
-ctx.lineWidth = 4;
-ctx.strokeStyle = "lightblue";
-ctx.stroke()
-            ctx.fillStyle = "red";
-            ctx.fillRect(0, 0, 150, 75);
+   ctx.beginPath(); //circle
+   ctx.arc(128, 128, 128, 0, 2 * Math.PI); //circle characteristics
+   ctx.lineWidth = 4; // circle line
+   ctx.strokeStyle = "lightblue";
+   ctx.stroke() // end of circle
+
+            ctx.beginPath(); //line
+            ctx.moveTo(128, 128);
+            ctx.lineTo(128, 256);
+            ctx.strokeStyle = "green"
+            ctx.stroke();
+
+
+            
       </script>
       
    </body>
