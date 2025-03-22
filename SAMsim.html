@@ -1,9 +1,18 @@
 <html>
    <head>
       <title>WIP</title>
+      <script>
+const RDR = document.getElementById("RADAR");
+const ctx = RDR.getContext("2d");
+
+ctx.beginPath();
+ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+ctx.stroke();
+      </script>
    </head>
    <body>
       <h1>WIP</h1>
       <canvas id="RADAR" width="256" height="256"></canvas>
+      
    </body>
 </html>
