@@ -15,8 +15,10 @@
          <script>
             setInterval(radar, 100);
             function radar(){
-            var x = 128;
-            var y = 0;
+           var radius = 128;
+   var angle  = 140;
+   var x = radius * Math.cos(Math.PI * 2 * angle / 360);
+   var y = radius * Math.sin(Math.PI * 2 * angle / 360);
    const RDR = document.getElementById("RADAR");
    const ctx = RDR.getContext("2d");
 
