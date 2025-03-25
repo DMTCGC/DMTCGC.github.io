@@ -46,8 +46,8 @@ var elements = [
                    ctx.stroke() // end of circle
                  } else if(elem.id == 'line') { // im not rewriting all of these comments again wtf, basically all of the above but for line
                     ctx.beginPath(); //line
-                    ctx.moveTo(, 128);
-                    ctx.lineTo(x, y);
+                    ctx.moveTo(elem.data.x, elem.data.y);
+                    ctx.lineTo(elem.data.lineX, elem.data.lineY);
                     ctx.strokeStyle = "green";
                     ctx.stroke();
                   } else { // if you somehow have an incorrect id which means you would need to edit the function, then you get this xd
