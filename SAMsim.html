@@ -18,8 +18,8 @@
             function radar(){
            var radius = 128;
   
-   var y = radius * Math.cos(Math.PI * 2 * angle / 90);
    var x = radius * Math.sin(Math.PI * 2 * angle / 90);
+   var y = radius * Math.cos(Math.PI * 2 * angle / 90);
    const RDR = document.getElementById("RADAR");
    const ctx = RDR.getContext("2d");
    ctx.clearRect(0,0,256,256);
@@ -41,7 +41,7 @@
                };
                
             };
-       setInterval(radar, 1000);
+       setInterval(radar, 100);
       </script>
       
    </body>
