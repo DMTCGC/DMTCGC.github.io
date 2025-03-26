@@ -12,6 +12,7 @@
    <body>
       <h1>WIP</h1>
       <canvas id="RADAR" width="256" height="256"></canvas>
+<<<<<<< HEAD
       <script>
 var radius = 128;
 var angle = 140;
@@ -67,6 +68,36 @@ var elements = [
          function detection(){
             //code soon
          }
+=======
+         <script>
+            setInterval(radar, 100);
+            function radar(){
+           var radius = 128;
+   var angle  = 140;
+   var x = radius * Math.cos(Math.PI * 2 * angle / 360);
+   var y = radius * Math.sin(Math.PI * 2 * angle / 360);
+   const RDR = document.getElementById("RADAR");
+   const ctx = RDR.getContext("2d");
+
+   ctx.beginPath(); //circle
+   ctx.arc(128, 128, 128, 0, 2 * Math.PI); //circle characteristics
+   ctx.lineWidth = 4; // circle line
+   ctx.strokeStyle = "lightblue";
+   ctx.stroke() // end of circle
+
+            ctx.beginPath(); //line
+            ctx.moveTo(128, 128);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = "green";
+            ctx.stroke();
+               angle++;
+               if(angle >= 360){
+                  angle = 0;
+               };
+               ctx.clearRect(0,0,256,256);
+            };
+            
+>>>>>>> parent of c89b68b (REWROTE THE ENTIRETY OF THE CODE XD)
       </script>
       
    </body>
