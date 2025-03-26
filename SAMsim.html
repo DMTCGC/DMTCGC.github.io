@@ -18,8 +18,8 @@
             function radar(){
            var radius = 128;
   
-   var x = radius * Math.sin(Math.PI * 2 * angle / 180);
-   var y = radius * Math.cos(Math.PI * 2 * angle / 180);
+   var x = radius * Math.sin(Math.PI * 2 * angle / 180) + 180;
+   var y = radius * Math.cos(Math.PI * 2 * angle / 180) +180;
               
    const RDR = document.getElementById("RADAR");
    const ctx = RDR.getContext("2d");
