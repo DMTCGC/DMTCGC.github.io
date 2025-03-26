@@ -35,8 +35,7 @@ var elements = [
             setInterval(update, 20); // update interval (20ms)
            function update() {
   // this is basically kind of a render function, not really update but it has other things to update too like the angle
-             const RDR = document.getElementById("RADAR");
-             const ctx = RDR.getContext('2d');
+             const ctx = document.getElementById("radar").getContext('2d');
              ctx.clearRect(0,0,256,256); // clearing
              elements.forEach(elem => { // get each element or object wtf u wanna call it and uh you draw it, kinda like for(var i=0;i<10;i++), the "i" would be the current count, well here it's the current object
                  if(elem.id == 'circle') { // if the object is a circle then it will check for the characteristics in elem.data and DRAW IT
