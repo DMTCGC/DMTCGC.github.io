@@ -14,10 +14,10 @@
       <canvas id="RADAR" width="256" height="256"></canvas>
 
  <script>
-         
+          var angle  = 1;
             function radar(){
            var radius = 128;
-   var angle  = 1;
+  
    var x = radius * Math.cos(Math.PI * 2 * angle / 360);
    var y = radius * Math.sin(Math.PI * 2 * angle / 360);
    const RDR = document.getElementById("RADAR");
