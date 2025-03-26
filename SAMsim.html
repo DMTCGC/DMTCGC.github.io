@@ -12,64 +12,8 @@
    <body>
       <h1>WIP</h1>
       <canvas id="RADAR" width="256" height="256"></canvas>
-<<<<<<< HEAD
-      <script>
-var radius = 128;
-var angle = 140;
-function convertX(rad, ang) { // converting to line X
-  return rad * Math.cos(Math.PI * 2 * ang / 360);
-}
-function convertY(rad, ang) { // converting to line Y
-  return rad * Math.sin(Math.PI * 2 * ang / 360);
-}
-function circle(x, y, radius, startAngle, endAngle, lineWidth, style) { // USE THIS TO ADD A CIRCLE TO THE ARRAY
-  return {id:'circle',data:{x:x,y:y,radius:radius,startAngle:startAngle,endAngle:endAngle,lineWidth:lineWidth,style:style}}; // adds it in json to the array so you can it updates properly
-}
-function line(x, y, lineX, lineY, style) { // THIS FOR A LINE
-  return {id:'line',data:{x:x,y:y,lineX:lineX,lineY:lineY,style:style}}; // same here as for the circle one
-} 
-var elements = [
-  circle(128, 128, 128, 0, 2*Math.PI, 4, 'lightblue'), // the main circle of the radar
-  line(128, 128, convertX(radius, angle), convertY(radius, angle), 'green') // and the line
-  // easily add more elements or whatever you wanna call it objects idk and they also update properly in the update() function
-];
-            setInterval(update, 20); // update interval (20ms)
-           function update() {
-  // this is basically kind of a render function, not really update but it has other things to update too like the angle
-             const ctx = document.getElementById("radar").getContext('2d');
-             ctx.clearRect(0,0,256,256); // clearing
-             elements.forEach(elem => { // get each element or object wtf u wanna call it and uh you draw it, kinda like for(var i=0;i<10;i++), the "i" would be the current count, well here it's the current object
-                 if(elem.id == 'circle') { // if the object is a circle then it will check for the characteristics in elem.data and DRAW IT
-                   ctx.beginPath(); //circle
-                   ctx.arc(elem.data.x, elem.data.y, elem.data.radius, elem.data.startAngle, elem.data.endAngle); // from the specified json, draw the circle
-                   ctx.lineWidth = elem.data.lineWidth; // and you know the rest already
-                   ctx.strokeStyle = elem.data.style;
-                   ctx.stroke() // end of circle
-                 } else if(elem.id == 'line') { // im not rewriting all of these comments again wtf, basically all of the above but for line
-                    ctx.beginPath(); //line
-                    ctx.moveTo(, 128);
-                    ctx.lineTo(x, y);
-                    ctx.strokeStyle = "green";
-                    ctx.stroke();
-                  } else { // if you somehow have an incorrect id which means you would need to edit the function, then you get this xd
-                    console.error('wtf bro doing');
-                  }
-             });
-             if(angle >= 360) {
-               angle = 0;
-             } else { // and yes here's the angle updating
-               angle++
-             }
-           }
-         function flight(){
-            //code soon
-         }
 
-         function detection(){
-            //code soon
-         }
-=======
-         <script>
+ <script>
             setInterval(radar, 100);
             function radar(){
            var radius = 128;
@@ -96,8 +40,6 @@ var elements = [
                };
                ctx.clearRect(0,0,256,256);
             };
-            
->>>>>>> parent of c89b68b (REWROTE THE ENTIRETY OF THE CODE XD)
       </script>
       
    </body>
