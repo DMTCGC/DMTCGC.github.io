@@ -53,11 +53,12 @@
        return{ththeight:tgtheight, tgtx:tgtx, tgty:tgty};
     };
     function DBG_MAP(){
+        var target = tgt(); 
         const RDR = document.getElementById("RADAR");
         const ctx = RDR.getContext("2d");
         ctx.beginPath(); //line
-            ctx.moveTo(tgtx, tgty);
-            ctx.lineTo(tgtx, tgty);
+            ctx.moveTo(target.tgtx, target.tgty);
+            ctx.lineTo(target.tgtx, target.tgty);
             ctx.lineWidth = 5;
             ctx.strokeStyle = "lightred";
             ctx.stroke();   
