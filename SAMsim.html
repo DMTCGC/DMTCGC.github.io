@@ -44,7 +44,7 @@
                };
                
             };
-       setInterval(radar, 50);
+      
 
     function tgt(){
       var tgtheight = 500;
@@ -52,6 +52,18 @@
       var tgty = 200;
        return{ththeight:tgtheight, tgtx:tgtx, tgty:tgty};
     };
+    function DBG_MAP(){
+        const RDR = document.getElementById("RADAR");
+        const ctx = RDR.getContext("2d");
+        ctx.beginPath(); //line
+            ctx.moveTo(tgtx, tgty);
+            ctx.lineTo(tgtx, tgty);
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = "lightred";
+            ctx.stroke();   
+    };
+     setInterval(radar, 50);
+     setInterval(DBG_MAP, 1000);
       </script>
       
    </body>
